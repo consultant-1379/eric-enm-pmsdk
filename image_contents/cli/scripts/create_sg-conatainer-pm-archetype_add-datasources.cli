@@ -1,0 +1,8 @@
+#######################################################
+# configure FLSDB
+#######################################################
+if (outcome == success) of /subsystem=datasources/jdbc-driver=fls-postgresql:add(driver-name=fls-postgresql,driver-module-name=com.ericsson.oss.itpf.sdk.postgresql,driver-class-name=org.postgresql.Driver)
+end-if
+
+if (outcome == success) of /subsystem=datasources/data-source=FLSDB-pool:add(driver-name=fls-postgresql,connection-url=jdbc:postgresql://${POSTGRES_SERVICE:postgresql01}:5432/flsdb,jndi-name=java:jboss/datasources/FLSDB,user-name=fls,password=fls123,enabled=true,use-java-context=true,use-ccm=true,min-pool-size=1,max-pool-size=8,pool-use-strict-min=false,pool-prefill=false,flush-strategy=FailingConnectionOnly,prepared-statements-cache-size=32,allocation-retry=6,allocation-retry-wait-millis=10000,idle-timeout-minutes=1,valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker,validate-on-match=true,background-validation=true,use-fast-fail=false)
+end-if

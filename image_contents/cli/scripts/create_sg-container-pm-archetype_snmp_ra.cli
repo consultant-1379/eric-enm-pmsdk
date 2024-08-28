@@ -1,0 +1,7 @@
+#Configure SNMP Resource Adapter
+if (outcome == success) of /subsystem=resource-adapters:read-resource
+/subsystem=resource-adapters/resource-adapter=SnmpEnterpriseConnector.rar:add(module=com.ericsson.oss.mediation.adapter.enterprise.connector.rar, transaction-support=NoTransaction)
+end-if
+
+if (outcome == success) of /subsystem=resource-adapters/resource-adapter=SnmpEnterpriseConnector.rar/connection-definitions=SnmpConnectionFactory:add(class-name=com.ericsson.oss.mediation.adapter.enterprise.connector.outbound.SnmpManagedConnectionFactory, jndi-name=java:/eis/SnmpConnectionFactory, min-pool-size=1000, max-pool-size=4000, recovery-username=user, recovery-password=password)
+end-if

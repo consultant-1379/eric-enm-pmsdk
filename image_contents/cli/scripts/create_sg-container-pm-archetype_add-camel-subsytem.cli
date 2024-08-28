@@ -1,0 +1,3 @@
+# Insert global modules
+if (outcome == success) of  /subsystem=ee:list-add(name="global-modules",value={"name" => "org.apache.camel","annotations" => "true"})
+end-if

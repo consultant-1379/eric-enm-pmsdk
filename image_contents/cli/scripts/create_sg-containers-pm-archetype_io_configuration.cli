@@ -1,0 +1,19 @@
+echo "Configuring io for SG containers PM archetype into the standalone"
+#Configuring workers defined in io subsytem
+
+if (outcome != success) of /subsystem=io/worker=ajp-executor:read-resource
+/subsystem=io/worker=ajp-executor:add
+/subsystem=io/worker=ajp-executor:write-attribute(name="io-threads",value="30")
+/subsystem=io/worker=ajp-executor:write-attribute(name="task-keepalive",value="10000")
+/subsystem=io/worker=ajp-executor:write-attribute(name="task-max-threads",value="30")
+/subsystem=io/worker=ajp-executor:write-attribute(name="stack-size",value="0")
+/subsystem=io/worker=ajp-executor:write-attribute(name="task-core-threads",value="30")
+end-if
+if (outcome != success) of /subsystem=io/worker=http-executor:read-resource
+/subsystem=io/worker=http-executor:add
+/subsystem=io/worker=http-executor:write-attribute(name="io-threads",value="30")
+/subsystem=io/worker=http-executor:write-attribute(name="task-keepalive",value="30000")
+/subsystem=io/worker=http-executor:write-attribute(name="task-max-threads",value="30")
+/subsystem=io/worker=http-executor:write-attribute(name="stack-size",value="0")
+/subsystem=io/worker=http-executor:write-attribute(name="task-core-threads",value="30")
+end-if

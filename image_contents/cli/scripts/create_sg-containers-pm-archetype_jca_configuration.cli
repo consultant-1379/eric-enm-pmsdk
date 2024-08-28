@@ -1,0 +1,15 @@
+echo "Allocating JCA thread resources for SG containers PM archetype into the standalone"
+#Allocating thread resources for JCA
+
+if (outcome == success) of /subsystem=jca/workmanager=default/short-running-threads=default:read-resource
+/subsystem=jca/workmanager=default/short-running-threads=default:write-attribute(name=core-threads,value=50)
+/subsystem=jca/workmanager=default/short-running-threads=default:write-attribute(name=queue-length, value=50)
+/subsystem=jca/workmanager=default/short-running-threads=default:write-attribute(name=max-threads, value=50)
+end-if
+
+if (outcome == success) of /subsystem=jca/workmanager=default/long-running-threads=default:read-resource
+/subsystem=jca/workmanager=default/long-running-threads=default:write-attribute(name=core-threads,value=50)
+/subsystem=jca/workmanager=default/long-running-threads=default:write-attribute(name=queue-length, value=50)
+/subsystem=jca/workmanager=default/long-running-threads=default:write-attribute(name=max-threads, value=50)
+end-if
+

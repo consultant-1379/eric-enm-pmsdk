@@ -1,0 +1,31 @@
+echo "Inserting the JMS Queues for SG containers PM archetype into the standalone"
+#Insert the JMS Queues into the standalone
+
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=Clustered-security-dps-notification-event:add(entries=[queue/security-dps-notification-event-amq java:jboss/exported/jms/queue/security-dps-notification-event-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredScannerPollingResultQueue:add(entries=[queue/ScannerPollingResultQueue-amq java:jboss/exported/jms/queue/ScannerPollingResultQueue-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredMediationServiceConsumerPMIP0:add(entries=[queue/ClusteredMediationServiceConsumerPMIP0-amq java:jboss/exported/jms/queue/ClusteredMediationServiceConsumerPMIP0-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredMediationServiceConsumerPMIP1:add(entries=[queue/ClusteredMediationServiceConsumerPMIP1-amq java:jboss/exported/jms/queue/ClusteredMediationServiceConsumerPMIP1-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredMediationServiceConsumer:add(entries=[queue/MediationServiceConsumerQueue-amq java:jboss/exported/jms/queue/MediationServiceConsumerQueue-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredMediationFailureResponseResultHandler:add(entries=[queue/MediationFailureResponseQueue-amq java:jboss/exported/jms/queue/MediationFailureResponseQueue-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredMediationResponseResultHandler:add(entries=[queue/MediationResponseQueue-amq java:jboss/exported/jms/queue/MediationResponseQueue-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredFMMediationChannel:add(entries=[queue/fmalarmqueue-amq java:jboss/exported/jms/queue/fmalarmqueue-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredEventBasedMediationClient:add(entries=[queue/MediationClientConsumerQueue-amq java:jboss/exported/jms/queue/MediationClientConsumerQueue-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredSupervisionMediationClientQueue:add(entries=[queue/SupervisionMediationClientQueue-amq java:jboss/exported/jms/queue/SupervisionMediationClientQueue-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredMediationServiceConsumerFMSNMP0:add(entries=[queue/FmSnmpMediationServiceConsumer_0-amq java:jboss/exported/jms/queue/FmSnmpMediationServiceConsumer_0-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredMediationServiceConsumerFMSNMP1:add(entries=[queue/FmSnmpMediationServiceConsumer_1-amq java:jboss/exported/jms/queue/FmSnmpMediationServiceConsumer_1-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredMediationServiceConsumerFMSNMP2:add(entries=[queue/FmSnmpMediationServiceConsumer_2-amq java:jboss/exported/jms/queue/FmSnmpMediationServiceConsumer_2-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-queue=ClusteredMediationServiceConsumerFMSNMP3:add(entries=[queue/FmSnmpMediationServiceConsumer_3-amq java:jboss/exported/jms/queue/FmSnmpMediationServiceConsumer_3-amq])
+end-if

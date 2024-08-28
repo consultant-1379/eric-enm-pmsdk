@@ -1,0 +1,15 @@
+echo "Inserting the JMS Topics for SG containers PM archetype into the standalone"
+#Insert the JMS topics into the standalone
+
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-topic=ClusteredMediationTaskErrorHandler:add(entries=[topic/MediationTaskErrorTopic-amq java:jboss/exported/jms/topic/MediationTaskErrorTopic-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-topic=ClusteredFMHandoverTopic:add(entries=[topic/handovertopic-amq java:jboss/exported/jms/topic/handovertopic-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-topic=Clustered-dps-notification-event:add(entries=[topic/dps-notification-event-amq java:jboss/exported/jms/topic/dps-notification-event-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-topic=modelDeploymentEvents:add(entries=[topic/modelDeploymentEvents-amq java:jboss/exported/jms/topic/modelDeploymentEvents-amq])
+end-if
+if (outcome == success) of /subsystem=messaging-activemq/server=default/jms-topic=Clustered-mediation-dps-deletion-event:add(entries=[topic/mediation-dps-deletion-event-amq java:jboss/exported/jms/topic/mediation-dps-deletion-event-amq])
+end-if
+
+

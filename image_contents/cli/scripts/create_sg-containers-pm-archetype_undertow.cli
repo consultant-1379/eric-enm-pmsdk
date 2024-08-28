@@ -1,0 +1,9 @@
+echo "Configuring undertow for SG containers PM archetype into the standalone"
+#Configuring ajp-executor and http-executor in undertow subsytem
+
+if (outcome == success) of /subsystem=undertow/server=default-server/ajp-listener=ajp:write-attribute(name="worker",value="ajp-executor")
+end-if
+if (outcome == success) of /subsystem=undertow/server=default-server/http-listener=default:read-resource
+/subsystem=undertow/server=default-server/http-listener=default:remove()
+/subsystem=undertow/server=default-server/http-listener=http:add(socket-binding=http,worker=http-executor,enable-http2=true)
+end-if

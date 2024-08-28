@@ -1,0 +1,3 @@
+echo "custom_jvm_configuration.cli"
+if (outcome == success) of /system-property=jboss.as.management.blocking.timeout:add(value=600)
+end-if
